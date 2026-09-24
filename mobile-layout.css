@@ -125,12 +125,12 @@
   }
   footer.player-bar .control-btn.btn-play .material-symbols-outlined { font-size: 23px !important; }
 
-  /* Full-width, thin progress line at the very bottom of the player. */
+  /* Full-width progress line, ending before the play button column. */
   footer.player-bar .progress-container {
     display: block !important;
     grid-column: 1 / -1 !important;
     grid-row: 2 !important;
-    width: calc(100% + 24px) !important;
+    width: calc(100% - 48px) !important;
     max-width: none !important;
     height: 4px !important;
     margin-left: -12px !important;
@@ -139,19 +139,38 @@
   footer.player-bar .progress-container .slider {
     display: block !important;
     width: 100% !important;
-    height: 4px !important;
+    height: 2px !important;
     background: rgba(255,255,255,.22) !important;
+    border-radius: 0 !important;
+    transform: none !important;
+  }
+  footer.player-bar .progress-container .slider::-webkit-slider-runnable-track {
+    height: 2px !important;
     border-radius: 0 !important;
   }
   footer.player-bar .progress-container .slider::-webkit-slider-thumb {
     width: 8px !important;
     height: 8px !important;
-    margin-top: -2px !important;
+    margin-top: -3px !important;
+    border: 0 !important;
+    border-radius: 50% !important;
+    background: #fff !important;
+  }
+  footer.player-bar .progress-container .slider::-moz-range-track {
+    height: 2px !important;
+    border-radius: 0 !important;
+    background: rgba(255,255,255,.22) !important;
+  }
+  footer.player-bar .progress-container .slider::-moz-range-progress {
+    height: 2px !important;
+    background: #fff !important;
   }
   footer.player-bar .progress-container .slider::-moz-range-thumb {
     width: 8px !important;
     height: 8px !important;
     border: 0 !important;
+    border-radius: 50% !important;
+    background: #fff !important;
   }
 
   footer.player-bar .player-actions { display: none !important; }
