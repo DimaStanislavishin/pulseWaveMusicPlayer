@@ -1,6 +1,5 @@
 /* Phone-only bottom navigation and compact now-playing player.
- * Load this file after index.css with:
- * <link rel="stylesheet" href="mobile-layout.css">
+ * This file is intended to be loaded after index.css.
  */
 
 @media (max-width: 600px) {
@@ -13,7 +12,7 @@
     padding-bottom: calc(var(--phone-nav-height) + var(--phone-player-height) + env(safe-area-inset-bottom));
   }
 
-  /* The phone navigation belongs at the bottom, never on desktop. */
+  /* Phone navigation at the bottom. */
   #mobile-top-nav {
     position: fixed !important;
     top: auto !important;
@@ -40,6 +39,7 @@
     overflow: visible !important;
   }
 
+  /* Icons only: hide labels under the buttons on phones. */
   #mobile-top-nav .mobile-nav-btn {
     min-width: 0 !important;
     min-height: 56px !important;
@@ -48,11 +48,11 @@
     display: flex !important;
     flex-direction: column !important;
     justify-content: center !important;
-    gap: 3px !important;
+    gap: 0 !important;
     color: var(--text-muted) !important;
     background: transparent !important;
     border-radius: 10px !important;
-    font-size: 11px !important;
+    font-size: 0 !important;
   }
 
   #mobile-top-nav .mobile-nav-btn.active {
@@ -62,16 +62,12 @@
   }
 
   #mobile-top-nav .mobile-nav-btn .material-symbols-outlined {
-    font-size: 26px !important;
+    font-size: 30px !important;
     line-height: 1 !important;
   }
 
   #mobile-top-nav .mobile-nav-text {
-    display: inline-block !important;
-    max-width: none !important;
-    overflow: visible !important;
-    text-overflow: clip !important;
-    font-size: 11px !important;
+    display: none !important;
   }
 
   /* Player sits immediately above the bottom navigation. */
@@ -82,7 +78,7 @@
     padding: 7px 12px 9px !important;
     display: grid !important;
     grid-template-columns: 42px minmax(0, 1fr) auto !important;
-    grid-template-rows: 1fr 4px !important;
+    grid-template-rows: 1fr 8px !important;
     column-gap: 10px !important;
     row-gap: 5px !important;
     border-radius: 0 !important;
@@ -136,32 +132,43 @@
     display: none !important;
   }
 
+  /* Slightly smaller play/pause button. */
   footer.player-bar .control-btn.btn-play {
     display: inline-flex !important;
-    width: 44px !important;
-    height: 44px !important;
-    min-width: 44px !important;
-    min-height: 44px !important;
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    min-height: 38px !important;
     background: #fff !important;
     color: #111 !important;
   }
 
-  /* A thin white progress line under the now-playing row. */
+  footer.player-bar .control-btn.btn-play .material-symbols-outlined {
+    font-size: 23px !important;
+  }
+
+  /* Larger and easier-to-use progress bar. */
   footer.player-bar .progress-container {
     display: block !important;
     grid-column: 1 / -1 !important;
     grid-row: 2 !important;
     width: 100% !important;
     max-width: none !important;
-    height: 4px !important;
+    height: 8px !important;
   }
 
   footer.player-bar .progress-container .time-label { display: none !important; }
   footer.player-bar .progress-container .slider {
     display: block !important;
     width: 100% !important;
-    height: 4px !important;
-    background: rgba(255,255,255,.25) !important;
+    height: 8px !important;
+    background: rgba(255,255,255,.28) !important;
+    border-radius: 8px !important;
+  }
+
+  footer.player-bar .progress-container .slider::-webkit-slider-thumb {
+    width: 14px !important;
+    height: 14px !important;
   }
 
   footer.player-bar .player-actions { display: none !important; }
