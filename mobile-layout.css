@@ -1,6 +1,4 @@
-/* Phone-only bottom navigation and compact now-playing player.
- * This file is intended to be loaded after index.css.
- */
+/* Phone-only bottom navigation and compact now-playing player. */
 
 @media (max-width: 600px) {
   :root {
@@ -12,7 +10,6 @@
     padding-bottom: calc(var(--phone-nav-height) + var(--phone-player-height) + env(safe-area-inset-bottom));
   }
 
-  /* Phone navigation at the bottom. */
   #mobile-top-nav {
     position: fixed !important;
     top: auto !important;
@@ -39,7 +36,6 @@
     overflow: visible !important;
   }
 
-  /* Icons only: hide labels under the buttons on phones. */
   #mobile-top-nav .mobile-nav-btn {
     min-width: 0 !important;
     min-height: 56px !important;
@@ -66,21 +62,18 @@
     line-height: 1 !important;
   }
 
-  #mobile-top-nav .mobile-nav-text {
-    display: none !important;
-  }
+  #mobile-top-nav .mobile-nav-text { display: none !important; }
 
-  /* Player sits immediately above the bottom navigation. */
   footer.player-bar {
     bottom: calc(var(--phone-nav-height) + env(safe-area-inset-bottom)) !important;
     height: var(--phone-player-height) !important;
     min-height: var(--phone-player-height) !important;
-    padding: 7px 12px 9px !important;
+    padding: 7px 12px 0 !important;
     display: grid !important;
     grid-template-columns: 42px minmax(0, 1fr) auto !important;
-    grid-template-rows: 1fr 8px !important;
+    grid-template-rows: 1fr 4px !important;
     column-gap: 10px !important;
-    row-gap: 5px !important;
+    row-gap: 0 !important;
     border-radius: 0 !important;
     border-top: 1px solid rgba(255,255,255,.1) !important;
     background: rgba(27, 26, 28, .98) !important;
@@ -100,11 +93,7 @@
     border-radius: 6px !important;
   }
 
-  footer.player-bar .player-text {
-    display: block !important;
-    min-width: 0 !important;
-  }
-
+  footer.player-bar .player-text { display: block !important; min-width: 0 !important; }
   footer.player-bar .player-title,
   footer.player-bar .player-artist {
     max-width: 40vw !important;
@@ -112,7 +101,6 @@
     text-overflow: ellipsis !important;
     white-space: nowrap !important;
   }
-
   footer.player-bar .player-title { font-size: 12px !important; }
   footer.player-bar .player-artist { font-size: 11px !important; }
 
@@ -123,16 +111,9 @@
     display: block !important;
   }
 
-  footer.player-bar .control-buttons {
-    gap: 0 !important;
-    justify-content: flex-end !important;
-  }
+  footer.player-bar .control-buttons { gap: 0 !important; justify-content: flex-end !important; }
+  footer.player-bar .control-buttons .control-btn:not(.btn-play) { display: none !important; }
 
-  footer.player-bar .control-buttons .control-btn:not(.btn-play) {
-    display: none !important;
-  }
-
-  /* Slightly smaller play/pause button. */
   footer.player-bar .control-btn.btn-play {
     display: inline-flex !important;
     width: 38px !important;
@@ -142,33 +123,35 @@
     background: #fff !important;
     color: #111 !important;
   }
+  footer.player-bar .control-btn.btn-play .material-symbols-outlined { font-size: 23px !important; }
 
-  footer.player-bar .control-btn.btn-play .material-symbols-outlined {
-    font-size: 23px !important;
-  }
-
-  /* Larger and easier-to-use progress bar. */
+  /* Full-width, thin progress line at the very bottom of the player. */
   footer.player-bar .progress-container {
     display: block !important;
     grid-column: 1 / -1 !important;
     grid-row: 2 !important;
-    width: 100% !important;
+    width: calc(100% + 24px) !important;
     max-width: none !important;
-    height: 8px !important;
+    height: 4px !important;
+    margin-left: -12px !important;
   }
-
   footer.player-bar .progress-container .time-label { display: none !important; }
   footer.player-bar .progress-container .slider {
     display: block !important;
     width: 100% !important;
-    height: 8px !important;
-    background: rgba(255,255,255,.28) !important;
-    border-radius: 8px !important;
+    height: 4px !important;
+    background: rgba(255,255,255,.22) !important;
+    border-radius: 0 !important;
   }
-
   footer.player-bar .progress-container .slider::-webkit-slider-thumb {
-    width: 14px !important;
-    height: 14px !important;
+    width: 8px !important;
+    height: 8px !important;
+    margin-top: -2px !important;
+  }
+  footer.player-bar .progress-container .slider::-moz-range-thumb {
+    width: 8px !important;
+    height: 8px !important;
+    border: 0 !important;
   }
 
   footer.player-bar .player-actions { display: none !important; }
